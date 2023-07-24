@@ -1,0 +1,28 @@
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        struct ListNode *temp=head;
+        vector<int>v;
+        if(head==NULL)
+        {
+            return head;
+        }
+        else{
+            while(temp!=NULL)
+            {
+                v.push_back(temp->val);
+                temp=temp->next;
+            }
+            sort(v.begin(),v.end());
+            temp=head;
+            int count=0;
+            while(temp!=NULL)
+            {
+                temp->val=v[count];
+                count++;
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
