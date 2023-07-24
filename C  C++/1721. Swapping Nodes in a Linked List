@@ -1,0 +1,36 @@
+class Solution {
+public:
+    ListNode* swapNodes(ListNode* head, int k) {
+        struct ListNode *temp=head;
+        vector<int>v;
+        if(head==NULL)
+        {
+            return head;
+        }
+        else{
+            while(temp!=NULL)
+            {
+                v.push_back(temp->val);
+                temp=temp->next;
+            }
+            int a=k-1;
+            int b=v.size()-k;
+            int count=0;
+            temp=head;
+            while(temp!=NULL)
+            {
+                if(count==a)
+                {
+                    temp->val=v[b];
+                }
+                if(count==b)
+                {
+                    temp->val=v[a];
+                }
+                count++;
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
