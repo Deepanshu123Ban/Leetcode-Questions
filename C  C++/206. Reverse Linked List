@@ -1,0 +1,27 @@
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        struct ListNode *temp=head;
+        vector<int>v;
+        if(head==NULL)
+        {
+            return head;
+        }
+        else{
+            while(temp!=NULL)
+            {
+                v.push_back(temp->val);
+                temp=temp->next;
+            }
+            temp=head;
+            int count=v.size()-1;
+            while(temp!=NULL)
+            {
+                temp->val=v[count];
+                count--;
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
