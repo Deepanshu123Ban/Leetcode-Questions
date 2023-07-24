@@ -1,0 +1,34 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        struct ListNode *temp=head;
+        struct ListNode *temp1;
+        vector<int>v;
+        if(head==NULL)
+        {
+            return head;
+        }
+        else{
+            while(temp!=NULL)
+            {
+                v.push_back(temp->val);
+                temp=temp->next;
+            }
+            temp=head;
+            int count=v.size()/2;;
+            while(temp!=NULL)
+            {
+                temp->val=v[count];
+                count++;
+                temp1=temp;
+                if(count==v.size())
+                {
+                    temp1->next=NULL;
+                    return head;
+                }
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
