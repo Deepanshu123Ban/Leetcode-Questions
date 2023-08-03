@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool checkTree(TreeNode* root) {
+        int sum;
+        int a=root->left->val;
+        int b=root->right->val;
+        sum=a+b;
+        if(root->val == sum)
+        {
+            return true;
+        }
+        return false;
+    }
+};
