@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<long int>v;
+        if(nums.size()==1)
+        {
+            return nums[0];
+        }
+        for(int i=nums.size()-1;i>0;i--)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                v.push_back(nums[i]);
+            }
+        }
+        v.push_back(nums[0]);
+        if(v.size()<3)
+        {
+            return nums[nums.size()-1];
+        }
+        return v[2];
+    }
+};
