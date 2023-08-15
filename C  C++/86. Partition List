@@ -1,0 +1,42 @@
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        struct ListNode *temp=head;
+        vector<int>v;
+        vector<int>v1;
+        if(head==NULL)
+        {
+            return head;
+        }
+        else{
+            while(temp!=NULL)
+            {
+                v.push_back(temp->val);
+                temp=temp->next;
+            }
+            for(int i=0;i<v.size();i++)
+            {
+                if(v[i]<x)
+                {
+                    v1.push_back(v[i]);
+                }
+            }
+            for(int i=0;i<v.size();i++)
+            {
+                if(v[i]>=x)
+                {
+                    v1.push_back(v[i]);
+                }
+            }
+            temp=head;
+            int sum=0;
+            while(temp!=NULL)
+            {
+                temp->val=v1[sum];
+                sum++;
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
