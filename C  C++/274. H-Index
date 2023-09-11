@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        int count=0;
+        vector<int>v;
+        for(int i=1;i<=citations.size()*2;i++)
+        {
+            count=0;
+            for(int j=0;j<citations.size();j++)
+            {
+                if(citations[j]>=i)
+                {
+                    count++;
+                }
+            }
+            if(count>=i)
+            {
+                cout<<i<<" ";
+                v.push_back(i);
+            }
+            else{
+                if(v.size()==0)
+                {
+                    return 0;
+                }
+                return v[v.size()-1];
+            }
+        }
+        if(v.size()==1)
+        {
+            return 1;
+        }
+        cout<<"d"<<" ";
+        return 0;
+    }
+};
