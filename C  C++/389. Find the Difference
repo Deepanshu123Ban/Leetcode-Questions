@@ -1,0 +1,25 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        char v;
+        int flag=0;
+        for(int i=0;i<t.length();i++)
+        {
+            flag=0;
+            for(int j=0;j<s.length();j++)
+            {
+                if(s[j]==t[i])
+                {
+                    s[j]='.';
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+            {
+               return t[i];
+            }
+        }
+        return v;
+    }
+};
