@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        float a=nums.size()/3; // for a= total size divide by 3
+        vector<int>v;  // vector define
+        int count=0; // for count number of times appear in array
+        int flag=0;  // check condition in run or not
+
+        // outer loop compare with inner loop
+        for(int i=0;i<nums.size();i++)
+        {
+            count=1;
+            if(nums[i]!=-11)
+            {
+            for(int j=i+1;j<nums.size();j++)
+            {
+                if(nums[i]==nums[j])
+                {
+                    nums[j]=-11;
+                    count++;
+                }
+            }
+            if(a<count)  // compare count satifies n/3 then push element in vector v
+            {
+                v.push_back(nums[i]);
+            }
+            }
+        }
+
+        return v;
+    }
+};
